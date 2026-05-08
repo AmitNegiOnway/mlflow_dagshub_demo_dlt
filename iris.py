@@ -7,7 +7,10 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-mlflow.set_tracking_uri('http://127.0.0.1:5000') # if we worked on aws so we put here aws url.. 
+import dagshub
+dagshub.init(repo_owner='amitnegionway', repo_name='mlflow_dagshub_demo_dlt', mlflow=True)
+
+mlflow.set_tracking_uri("https://dagshub.com/amitnegionway/mlflow_dagshub_demo_dlt.mlflow") # if we worked on aws so we put here aws url.. 
 
 # Load the Iris dataset
 iris = load_iris()
@@ -27,12 +30,12 @@ max_depth = 5
 
 
 
+mlflow.set_experiment('iris-dt')
 
 
 
 
-
-with mlflow.start_run(experiment_id='479759578844802238'): # this is called contaxt manager
+with mlflow.start_run(): # this is called contaxt manager
     dt=DecisionTreeClassifier(max_depth=max_depth)
 
     dt.fit(X_train,y_train)
