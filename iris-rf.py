@@ -70,7 +70,7 @@ with mlflow.start_run(): # this is called contaxt manager
     # mlflow.log_model(dt,"decision tree") this one also used but if u used previous one they provided more meta data...
     
     # mlflow tags
-    mlflow.set_tag('author','amit negi')
+    mlflow.set_tag('author','sayuri')
     mlflow.set_tag('model','random forest')
     mlflow.set_tag('day','6/26/2025')
 
