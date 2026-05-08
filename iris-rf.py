@@ -2,7 +2,7 @@ import pandas as pd
 import mlflow.sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
-from sklearn.tree import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -36,7 +36,7 @@ mlflow.set_experiment('iris-rf')
 
 
 with mlflow.start_run(): # this is called contaxt manager
-    rf=RandomForestClassifier(max_depth=max_depth,n_estimator=n_estimator)
+    rf=RandomForestClassifier(max_depth=max_depth,n_estimators=n_estimator)
     rf.fit(X_train,y_train)
 
     y_pred=rf.predict(X_test)
